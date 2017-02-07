@@ -28,9 +28,7 @@
     "url": "https://github.com/developerdizzle/react-virtual-list/issues"
   },
   "homepage": "https://github.com/developerdizzle/react-virtual-list",
-  "dependencies": {
-    "lodash.throttle": "^4.0.0"
-  },
+  "dependencies": {},
   "devDependencies": {
     "babel-cli": "^6.18.0",
     "babel-core": "^6.18.2",

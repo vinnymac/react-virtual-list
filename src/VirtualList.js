@@ -1,8 +1,6 @@
 import React, { PureComponent, PropTypes } from 'react';
 import ReactDOM from 'react-dom';
 
-import throttle from 'lodash.throttle';
-
 import getVisibleItemBounds from './utils/getVisibleItemBounds';
 
 const VirtualList = (options) => (InnerComponent) => {
@@ -21,7 +19,6 @@ const VirtualList = (options) => (InnerComponent) => {
       super(props);
 
       this.options = {
-        scrollThrottle: -1,
         container: typeof window !== 'undefined' ? window : undefined,
         ...options,
       };
@@ -40,12 +37,6 @@ const VirtualList = (options) => (InnerComponent) => {
       }
 
       this.refreshState = this.refreshState.bind(this);
-
-      if (this.options.scrollThrottle >= 0) {
-        this.refreshState = throttle(this.refreshState, this.options.scrollThrottle, {
-          trailing: true,
-        });
-      }
     };
 
     setStateIfNeeded(list, container, items, itemHeight, itemBuffer) {
